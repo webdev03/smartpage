@@ -13,7 +13,7 @@
 	<label for="engine">Search engine: </label>
 	<input
 		type="text"
-    id="engine"
+		id="engine"
 		class="dark:text-gray-900 rounded p-1"
 		on:change={setEngine}
 		bind:value={engine}
