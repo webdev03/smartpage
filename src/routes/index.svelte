@@ -36,7 +36,8 @@
   // Next line taken from https://stackoverflow.com/questions/14529381/leading-zeros-in-minutes#comment77087197_29289639
   $: minute = (time.getMinutes() < 10 ? "0" : "") + time.getMinutes();
   onMount(async () => {
-    if (localStorage.getItem("quicklinks") == null) localStorage.setItem("quicklinks", JSON.stringify(quicklinks));
+    if (localStorage.getItem("quicklinks") == null)
+      localStorage.setItem("quicklinks", JSON.stringify(quicklinks));
     quicklinks = JSON.parse(localStorage.getItem("quicklinks"));
     // update time every 200 ms
     setInterval(() => {
@@ -82,7 +83,10 @@
 
 <hr class="mt-3 mb-3 w-96" />
 
-<Quicklinks bind:quicklinks evalChange={() => window.localStorage.setItem("quicklinks", JSON.stringify(quicklinks))} />
+<Quicklinks
+  bind:quicklinks
+  evalChange={() => window.localStorage.setItem("quicklinks", JSON.stringify(quicklinks))}
+/>
 <br />
 <div>
   <button on:click={togglePrefs} class="inline-flex hover:animate-spin">
