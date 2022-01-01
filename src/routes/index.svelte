@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import GearFill from "$lib/bootstrap-icons/gear-fill.svelte";
   import Preferences from "$lib/components/Preferences.svelte";
+  import Quicklinks from "$lib/components/Quicklinks.svelte";
   let time = new Date();
   let prefsOn = false;
   let searchValue = "";
@@ -35,9 +36,12 @@
   // Next line taken from https://stackoverflow.com/questions/14529381/leading-zeros-in-minutes#comment77087197_29289639
   $: minute = (time.getMinutes() < 10 ? "0" : "") + time.getMinutes();
   onMount(async () => {
+    if (localStorage.getItem("quicklinks") == null) localStorage.setItem("quicklinks", JSON.stringify(quicklinks));
+    quicklinks = JSON.parse(localStorage.getItem("quicklinks"));
     // update time every 200 ms
     setInterval(() => {
       time = new Date();
+      quicklinks = JSON.parse(localStorage.getItem("quicklinks"));
     }, 200);
     // evaluate preferences
     if (window.localStorage.getItem("search-engine") == null)
@@ -78,20 +82,7 @@
 
 <hr class="mt-3 mb-3 w-96" />
 
-<h1 class="mt-2 font-bold text-2xl">Quick Links</h1>
-<div class="flex flex-row flex-wrap row-span-3 space-x-2 flex-1 max-w-3xl">
-  <div />
-  {#each quicklinks as link}
-    <a href={link.link} class="hover:font-semibold transition-all">
-      <div
-        class="inline-block mt-2 p-3 w-36 min-h-96 rounded-md bg-gray-200 dark:bg-gray-900 dark:text-white text-gray-900"
-      >
-        {link.name}
-      </div>
-    </a>
-  {/each}
-</div>
-
+<Quicklinks bind:quicklinks evalChange={() => window.localStorage.setItem("quicklinks", JSON.stringify(quicklinks))} />
 <br />
 <div>
   <button on:click={togglePrefs} class="inline-flex hover:animate-spin">
