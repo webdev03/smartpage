@@ -1,17 +1,18 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-  import GearFill from "$lib/bootstrap-icons/gear-fill.svelte";
-  import Preferences from "$lib/components/Preferences.svelte";
+	import GearFill from "$lib/bootstrap-icons/gear-fill.svelte";
+	import Preferences from "$lib/components/Preferences.svelte";
 	let time = new Date();
-  let prefsOn = false;
-  let searchValue = "";
+	let prefsOn = false;
+	let searchValue = "";
 	const search = () => {
-		window.location.href = window.localStorage.getItem("search-engine") + encodeURIComponent(searchValue);
+		window.location.href =
+			window.localStorage.getItem("search-engine") + encodeURIComponent(searchValue);
 	};
 	const evalKeyPress = (e) => {
 		if (e.keyCode == 13) search();
 	};
-  const togglePrefs = () => prefsOn = !prefsOn;
+	const togglePrefs = () => (prefsOn = !prefsOn);
 	let quicklinks = [
 		{
 			name: "Github",
@@ -34,13 +35,13 @@
 	// Next line taken from https://stackoverflow.com/questions/14529381/leading-zeros-in-minutes#comment77087197_29289639
 	$: minute = (time.getMinutes() < 10 ? "0" : "") + time.getMinutes();
 	onMount(async () => {
-    // update time every 200 ms
+		// update time every 200 ms
 		setInterval(() => {
 			time = new Date();
 		}, 200);
-    // evaluate preferences
-    if (window.localStorage.getItem("search-engine") == null) window.localStorage.setItem("search-engine", "https://duckduckgo.com/?q=")
-    
+		// evaluate preferences
+		if (window.localStorage.getItem("search-engine") == null)
+			window.localStorage.setItem("search-engine", "https://duckduckgo.com/?q=");
 	});
 </script>
 
@@ -91,12 +92,12 @@
 	{/each}
 </div>
 
-<br>
+<br />
 <div>
-  <button on:click={togglePrefs} class="inline-flex hover:animate-spin">
-    <GearFill />
-  </button>
-  {#if prefsOn}
-  <Preferences />
-  {/if}
+	<button on:click={togglePrefs} class="inline-flex hover:animate-spin">
+		<GearFill />
+	</button>
+	{#if prefsOn}
+		<Preferences />
+	{/if}
 </div>
