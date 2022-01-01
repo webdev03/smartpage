@@ -79,7 +79,7 @@
 <hr class="mt-3 mb-3 w-96" />
 
 <h1 class="mt-2 font-bold text-2xl">Quick Links</h1>
-<div class="flex flex-row flex-wrap row-span-3 space-x-2 flex-1">
+<div class="flex flex-row flex-wrap row-span-3 space-x-2 flex-1 max-w-3xl">
   <div />
   {#each quicklinks as link}
     <a href={link.link} class="hover:font-semibold transition-all">
