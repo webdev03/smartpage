@@ -1,6 +1,6 @@
 <script>
   let engine = window.localStorage.getItem("search-engine");
-  const setEngine = (e) => {
+  const setEngine = () => {
     window.localStorage.setItem("search-engine", engine)
   } 
 </script>
