@@ -89,7 +89,7 @@
 />
 <br />
 <div>
-  <button on:click={togglePrefs} class="inline-flex hover:animate-spin">
+  <button on:click={togglePrefs} class="inline-flex motion-safe:hover:animate-spin">
     <GearFill />
   </button>
   {#if prefsOn}
