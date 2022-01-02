@@ -6,6 +6,7 @@
   let time = new Date();
   let prefsOn = false;
   let searchValue = "";
+  let loading = true;
   const search = () => {
     window.location.href =
       window.localStorage.getItem("search-engine") + encodeURIComponent(searchValue);
@@ -36,6 +37,7 @@
   // Next line taken from https://stackoverflow.com/questions/14529381/leading-zeros-in-minutes#comment77087197_29289639
   $: minute = (time.getMinutes() < 10 ? "0" : "") + time.getMinutes();
   onMount(async () => {
+    loading = false;
     if (localStorage.getItem("quicklinks") == null)
       localStorage.setItem("quicklinks", JSON.stringify(quicklinks));
     quicklinks = JSON.parse(localStorage.getItem("quicklinks"));
@@ -50,6 +52,9 @@
   });
 </script>
 
+{#if loading}
+<div class="inline text-3xl">Loading... <div class="inline-block ml-6 bg-sky-400 w-6 rounded-full animate-ping h-6"></div></div>
+{:else}
 <div id="time-wrapper" class="">
   <h1 class="font-bold text-6xl">
     {(time.getHours() < 10 ? "0" : "") + time.getHours()}:{minute}
@@ -96,3 +101,5 @@
     <Preferences />
   {/if}
 </div>
+
+{/if}
