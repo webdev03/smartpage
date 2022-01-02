@@ -53,53 +53,54 @@
 </script>
 
 {#if loading}
-<div class="inline text-3xl">Loading... <div class="inline-block ml-6 bg-sky-400 w-6 rounded-full animate-ping h-6"></div></div>
+  <div class="inline text-3xl">
+    Loading... <div class="inline-block ml-6 bg-sky-400 w-6 rounded-full animate-ping h-6" />
+  </div>
 {:else}
-<div id="time-wrapper" class="">
-  <h1 class="font-bold text-6xl">
-    {(time.getHours() < 10 ? "0" : "") + time.getHours()}:{minute}
-  </h1>
-  <h3>
-    {#if hour >= 20}
-      Good night!
-    {:else if hour >= 17}
-      Good evening!
-    {:else if hour >= 12}
-      Good afternoon!
-    {:else}
-      Good morning!
-    {/if}
-  </h3>
-</div>
+  <div id="time-wrapper" class="">
+    <h1 class="font-bold text-6xl">
+      {(time.getHours() < 10 ? "0" : "") + time.getHours()}:{minute}
+    </h1>
+    <h3>
+      {#if hour >= 20}
+        Good night!
+      {:else if hour >= 17}
+        Good evening!
+      {:else if hour >= 12}
+        Good afternoon!
+      {:else}
+        Good morning!
+      {/if}
+    </h3>
+  </div>
 
-<hr class="mt-3 mb-3 w-96" />
+  <hr class="mt-3 mb-3 w-96" />
 
-<h1 class="font-bold text-xl">Search the Web</h1>
-<div id="input-group" class="flex">
-  <input
-    on:keypress={evalKeyPress}
-    bind:value={searchValue}
-    type="text"
-    class="rounded-l-md h-12 dark:bg-gray-900 p-2"
-    placeholder="Type here..."
+  <h1 class="font-bold text-xl">Search the Web</h1>
+  <div id="input-group" class="flex">
+    <input
+      on:keypress={evalKeyPress}
+      bind:value={searchValue}
+      type="text"
+      class="rounded-l-md h-12 dark:bg-gray-900 p-2"
+      placeholder="Type here..."
+    />
+    <button class="h-12 rounded-r-md bg-blue-400 p-2" on:click={search}>Go</button>
+  </div>
+
+  <hr class="mt-3 mb-3 w-96" />
+
+  <Quicklinks
+    bind:quicklinks
+    evalChange={() => window.localStorage.setItem("quicklinks", JSON.stringify(quicklinks))}
   />
-  <button class="h-12 rounded-r-md bg-blue-400 p-2" on:click={search}>Go</button>
-</div>
-
-<hr class="mt-3 mb-3 w-96" />
-
-<Quicklinks
-  bind:quicklinks
-  evalChange={() => window.localStorage.setItem("quicklinks", JSON.stringify(quicklinks))}
-/>
-<br />
-<div>
-  <button on:click={togglePrefs} class="inline-flex motion-safe:hover:animate-spin">
-    <GearFill />
-  </button>
-  {#if prefsOn}
-    <Preferences />
-  {/if}
-</div>
-
+  <br />
+  <div>
+    <button on:click={togglePrefs} class="inline-flex motion-safe:hover:animate-spin">
+      <GearFill />
+    </button>
+    {#if prefsOn}
+      <Preferences />
+    {/if}
+  </div>
 {/if}
