@@ -8,6 +8,12 @@
   const setTwelveHour = () => {
     window.localStorage.setItem("twelvehour", twelvehour ? "true" : "false");
   };
+  onMount(() => {
+    twelvehour = window.localStorage.getItem("twelvehour") == "true";
+    setInterval(() => {
+      setTwelveHour()
+    }, 10)
+  })
 </script>
 
 <div
