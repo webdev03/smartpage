@@ -6,6 +6,7 @@
   let time = new Date();
   let prefsOn = false;
   let searchValue = "";
+  let twelvehour = false;
   let loading = true;
   const search = () => {
     window.location.href =
@@ -38,14 +39,19 @@
   $: minute = (time.getMinutes() < 10 ? "0" : "") + time.getMinutes();
   onMount(async () => {
     loading = false;
+    console.log(localStorage.getItem("twelvehour"), Boolean(localStorage.getItem("twelvehour")))
     if (localStorage.getItem("quicklinks") == null)
       localStorage.setItem("quicklinks", JSON.stringify(quicklinks));
+    if (localStorage.getItem("twelvehour") == null)
+      localStorage.setItem("twelvehour", "false");
     quicklinks = JSON.parse(localStorage.getItem("quicklinks"));
+    twelvehour = localStorage.getItem("twelvehour") == "true";
     // update time every 200 ms
     setInterval(() => {
       time = new Date();
       quicklinks = JSON.parse(localStorage.getItem("quicklinks"));
-    }, 200);
+      twelvehour = localStorage.getItem("twelvehour") == "true";
+    }, 100);
     // evaluate preferences
     if (window.localStorage.getItem("search-engine") == null)
       window.localStorage.setItem("search-engine", "https://duckduckgo.com/?q=");
@@ -59,7 +65,12 @@
 {:else}
   <div id="time-wrapper" class="">
     <h1 class="font-bold text-6xl">
-      {(time.getHours() < 10 ? "0" : "") + time.getHours()}:{minute}
+      {#if twelvehour}
+        {time.getHours() > 11 ? time.getHours() - 12 : time.getHours()}:{minute}
+        {time.getHours() > 10 ? "pm" : "am"}
+      {:else}
+        {(time.getHours() < 10 ? "0" : "") + time.getHours()}:{minute}
+      {/if}
     </h1>
     <h3>
       {#if hour >= 20}

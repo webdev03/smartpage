@@ -1,7 +1,12 @@
 <script>
+  import { onMount } from "svelte";
   let engine = window.localStorage.getItem("search-engine");
+  let twelvehour = window.localStorage.getItem("twelvehour") == "true";
   const setEngine = () => {
     window.localStorage.setItem("search-engine", engine);
+  };
+  const setTwelveHour = () => {
+    window.localStorage.setItem("twelvehour", twelvehour ? "true" : "false");
   };
 </script>
 
@@ -19,4 +24,13 @@
     bind:value={engine}
   />
   <p class="text-sm">At the end of this URL is where your search query will go</p>
+  <label for="12h">Twelve hour time? </label>
+  <input
+    type="checkbox"
+    id="12h"
+    class=""
+    on:change={setTwelveHour}
+    bind:checked={twelvehour}
+  />
 </div>
+
