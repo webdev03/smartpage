@@ -85,7 +85,7 @@
   </div>
 
   <h1 class="font-bold text-xl">Search the Web</h1>
-  <div id="input-group" class="flex">
+  <div id="input-group" class="flex justify-center">
     <input
       on:keypress={evalKeyPress}
       bind:value={searchValue}
