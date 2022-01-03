@@ -2,7 +2,7 @@
 
 <!-- prettier-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- prettier-ignore-end -->
 
@@ -28,6 +28,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/webdev03"><img src="https://avatars.githubusercontent.com/u/75148774?v=4?s=100" width="100px;" alt=""/><br /><sub><b>webdev03</b></sub></a><br /><a href="#projectManagement-webdev03" title="Project Management">📆</a> <a href="https://github.com/webdev03/smartpage/commits?author=webdev03" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/hello-smile6"><img src="https://avatars.githubusercontent.com/u/73048226?v=4?s=100" width="100px;" alt=""/><br /><sub><b>hello-smile6</b></sub></a><br /><a href="https://github.com/webdev03/smartpage/commits?author=hello-smile6" title="Code">💻</a> <a href="#content-hello-smile6" title="Content">🖋</a> <a href="#design-hello-smile6" title="Design">🎨</a> <a href="#ideas-hello-smile6" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 

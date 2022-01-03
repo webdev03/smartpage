@@ -14,6 +14,18 @@
         "projectManagement",
         "code"
       ]
+    },
+    {
+      "login": "hello-smile6",
+      "name": "hello-smile6",
+      "avatar_url": "https://avatars.githubusercontent.com/u/73048226?v=4",
+      "profile": "https://github.com/hello-smile6",
+      "contributions": [
+        "code",
+        "content",
+        "design",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
