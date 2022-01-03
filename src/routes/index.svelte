@@ -39,11 +39,10 @@
   $: minute = (time.getMinutes() < 10 ? "0" : "") + time.getMinutes();
   onMount(async () => {
     loading = false;
-    console.log(localStorage.getItem("twelvehour"), Boolean(localStorage.getItem("twelvehour")))
+    console.log(localStorage.getItem("twelvehour"), Boolean(localStorage.getItem("twelvehour")));
     if (localStorage.getItem("quicklinks") == null)
       localStorage.setItem("quicklinks", JSON.stringify(quicklinks));
-    if (localStorage.getItem("twelvehour") == null)
-      localStorage.setItem("twelvehour", "false");
+    if (localStorage.getItem("twelvehour") == null) localStorage.setItem("twelvehour", "false");
     quicklinks = JSON.parse(localStorage.getItem("quicklinks"));
     twelvehour = localStorage.getItem("twelvehour") == "true";
     // update time every 200 ms

@@ -25,12 +25,5 @@
   />
   <p class="text-sm">At the end of this URL is where your search query will go</p>
   <label for="12h">Twelve hour time? </label>
-  <input
-    type="checkbox"
-    id="12h"
-    class=""
-    on:change={setTwelveHour}
-    bind:checked={twelvehour}
-  />
+  <input type="checkbox" id="12h" class="" on:change={setTwelveHour} bind:checked={twelvehour} />
 </div>
-
