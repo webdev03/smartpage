@@ -5,7 +5,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- prettier-ignore-end -->
-
+<img src="https://assets.scratch.mit.edu/adb198cae73de1956ee0fd4ac1ee63bf.png">
 The smart search page, powered by SvelteKit and TailwindCSS.
 
 ## Why SvelteKit?
