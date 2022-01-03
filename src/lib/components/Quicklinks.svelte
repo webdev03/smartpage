@@ -47,7 +47,7 @@
             bind:value={link.link}
             on:input={evalChange}
           />
-          <div class="w-full"></div>
+          <div class="w-full" />
           <button on:click={removeQuicklink(i)}><CrossX /></button>
         </div>
       </div>
