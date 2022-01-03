@@ -51,6 +51,7 @@
         </div>
       </div>
     {/each}
+    <div class="w-full" />
     <button class="motion-safe:hover:animate-pulse" on:click={createQuicklink}><Plus /></button>
   {:else}
     {#each quicklinks as link}
