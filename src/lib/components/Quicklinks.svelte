@@ -25,7 +25,9 @@
 
 <h1 class="inline mt-2 font-bold text-2xl">Quick Links</h1>
 <button class="ml-2" on:click={() => (editing = !editing)}><PencilSquare /></button>
-<div class="justify-center flex flex-row flex-wrap row-span-3 space-x-2 flex-1 max-w-4xl overflow-hidden">
+<div
+  class="justify-center flex flex-row flex-wrap row-span-3 space-x-2 flex-1 max-w-4xl overflow-hidden"
+>
   <div />
   {#if editing}
     {#each quicklinks as link, i}
