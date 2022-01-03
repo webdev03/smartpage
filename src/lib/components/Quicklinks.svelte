@@ -31,22 +31,23 @@
   <div />
   {#if editing}
     {#each quicklinks as link, i}
-      <div class="hover:font-semibold transition-all">
+      <div class="hover:font-semibold transition-all text-left">
         <div
           class="inline-block mt-2 p-3 w-48 min-h-96 rounded-md bg-gray-200 dark:bg-gray-900 dark:text-white text-gray-900"
         >
           <input
             type="text"
-            class="w-36 bg-transparent"
+            class="w-full m-0.5 bg-transparent"
             bind:value={link.name}
             on:input={evalChange}
           />
           <input
             type="text"
-            class="w-36 bg-transparent"
+            class="w-full m-0.5 bg-transparent"
             bind:value={link.link}
             on:input={evalChange}
           />
+          <div class="w-full"></div>
           <button on:click={removeQuicklink(i)}><CrossX /></button>
         </div>
       </div>
