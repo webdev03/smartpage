@@ -71,7 +71,7 @@
         {(time.getHours() < 10 ? "0" : "") + time.getHours()}:{minute}
       {/if}
     </h1>
-    <h3>
+    <h3 class="align-middle">
       {#if hour >= 20}
         Good night!
       {:else if hour >= 17}
@@ -83,8 +83,6 @@
       {/if}
     </h3>
   </div>
-
-  <hr class="mt-3 mb-3 w-96" />
 
   <h1 class="font-bold text-xl">Search the Web</h1>
   <div id="input-group" class="flex">
@@ -98,7 +96,7 @@
     <button class="h-12 rounded-r-md bg-blue-400 p-2" on:click={search}>Go</button>
   </div>
 
-  <hr class="mt-3 mb-3 w-96" />
+  <hr class="h-0 mt-2 mb-2 w-0 border-none" />
 
   <Quicklinks
     bind:quicklinks
