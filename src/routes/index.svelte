@@ -9,6 +9,7 @@
   let twelvehour = false;
   let loading = true;
   const search = () => {
+    if (searchValue.length < 1) return; 
     window.location.href =
       window.localStorage.getItem("search-engine") + encodeURIComponent(searchValue);
   };
